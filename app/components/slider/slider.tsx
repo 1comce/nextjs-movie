@@ -64,7 +64,7 @@ export default function Slider({
                       className='w-full h-full select-none'
                     />
                     {/* play overlay */}
-                    <div className='absolute flex items-center justify-center inset-0 w-full h-full bg-black opacity-0 hover:opacity-30 cursor-pointer'>
+                    <div className='absolute flex items-center justify-center custom-inset-0 w-full h-full bg-black opacity-0 hover:opacity-30 cursor-pointer'>
                       <Link
                         className='flex items-center justify-center w-full h-full'
                         href={`/watch/${item.id}?type=${type}`}
@@ -74,8 +74,7 @@ export default function Slider({
                     </div>
                   </div>
                   <div className='w-full text-left'>
-                    <span className='text-sm md:text-base'>
-                      {" "}
+                    <span className='line-clamp-1 text-sm md:text-base'>
                       {isMovie ? item.title : item.name}
                     </span>
                   </div>
@@ -86,11 +85,11 @@ export default function Slider({
         </CarouselContent>
         <CarouselPrevious
           variant='ghost'
-          className='hidden md:block -left-0 cursor-pointer opacity-0 hover:opacity-100 hover:bg-gradient-to-r from-black to-tranparent h-full rounded-none disabled:opacity-0 px-3 md:px-8 hover:text-white'
+          className='hidden md:flex -left-0 cursor-pointer opacity-0 hover:opacity-100 hover:bg-gradient-to-r from-black to-tranparent h-full rounded-none disabled:opacity-0 px-3 md:px-8 hover:text-white'
         />
         <CarouselNext
           variant='ghost'
-          className='hidden md:block -right-0 cursor-pointer opacity-0 hover:opacity-100 hover:bg-gradient-to-l from-black to-tranparent h-full rounded-none disabled:opacity-0 px-3 md:px-8 hover:text-white'
+          className='hidden md:flex -right-0 cursor-pointer opacity-0 hover:opacity-100 hover:bg-gradient-to-l from-black to-tranparent h-full rounded-none disabled:opacity-0 px-3 md:px-8 hover:text-white'
         />
       </Carousel>
     </div>

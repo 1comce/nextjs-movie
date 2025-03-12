@@ -42,7 +42,9 @@ export async function getTrailer(id: string, type: string, language = "en-US") {
         item.site === "YouTube"
     );
     if (!trailer) notFound();
-    return `https://www.youtube.com/embed/${trailer.key || trailer[0].key}`;
+    return `https://www.youtube.com/embed/${
+      trailer.key || trailer[Math.floor(Math.random() * trailer.length)].key
+    }`;
   } catch {
     notFound();
   }

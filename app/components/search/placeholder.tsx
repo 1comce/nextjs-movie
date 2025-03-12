@@ -26,7 +26,7 @@ export default async function PlaceHolder() {
                   height={1000}
                   className='w-[15rem] select-none '
                 />
-                <div className='absolute flex items-center justify-center inset-0 w-full h-full bg-black opacity-0 hover:opacity-30 cursor-pointer'>
+                <div className='absolute flex items-center justify-center custom-inset-0 w-full h-full bg-black opacity-0 hover:opacity-30 cursor-pointer'>
                   <Link
                     className='flex items-center justify-center w-full h-full'
                     href={`/watch/${item.id}?type=${item.media_type}`}
@@ -36,7 +36,7 @@ export default async function PlaceHolder() {
                 </div>
               </div>
 
-              <span>{title}</span>
+              <span className='line-clamp-1'>{title}</span>
               {/* <p className='line-clamp-1'>{item.overview}</p> */}
             </div>
           );

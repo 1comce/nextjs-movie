@@ -59,7 +59,7 @@ export default function Page({
                     height={1000}
                     className='aspect-[2/3] select-none '
                   />
-                  <div className='absolute flex items-center justify-center inset-0 w-full h-full bg-black opacity-0 hover:opacity-30 cursor-pointer'>
+                  <div className='absolute flex items-center justify-center custom-inset-0 w-full h-full bg-black opacity-0 hover:opacity-30 cursor-pointer'>
                     <Link
                       className='flex items-center justify-center w-full h-full'
                       href={`/watch/${item.id}?type=${type}`}
@@ -69,7 +69,7 @@ export default function Page({
                   </div>
                 </div>
 
-                <span>{title}</span>
+                <span className='line-clamp-1'>{title}</span>
                 {/* <p className='line-clamp-1'>{item.overview}</p> */}
               </div>
             );

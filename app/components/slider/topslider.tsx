@@ -45,9 +45,9 @@ export default function TopSlider({ list }: { list: any }) {
                     className='w-full h-full select-none'
                   />
                   {/* background to cover banner */}
-                  <div className='absolute inset-0 w-full h-full bg-gradient-to-t from-black from-3% via-transparent to-transparent cursor-pointer'>
+                  <div className='absolute custom-inset-0 w-full h-full bg-gradient-to-t from-black from-3% via-transparent to-transparent cursor-pointer'>
                     <Link
-                      className='absolute inset-0 w-full h-full'
+                      className='absolute custom-inset-0 w-full h-full'
                       href={`/watch/${item.id}?type=${item.media_type}`}
                     />
                   </div>
@@ -82,11 +82,11 @@ export default function TopSlider({ list }: { list: any }) {
         </CarouselContent>
         <CarouselPrevious
           variant='default'
-          className='hidden md:block bg-transparent  hover:bg-transparent -left-0 cursor-pointer opacity-50 hover:opacity-100 h-full rounded-none px-3 md:px-8'
+          className='hidden md:flex bg-transparent hover:bg-transparent -left-0 cursor-pointer opacity-50 hover:opacity-100 h-full rounded-none px-3 md:px-8'
         />
         <CarouselNext
           variant='default'
-          className='hidden md:block bg-transparent hover:bg-transparent -right-0 cursor-pointer opacity-50 hover:opacity-100 h-full rounded-none px-3 md:px-8'
+          className='hidden md:flex bg-transparent hover:bg-transparent -right-0 cursor-pointer opacity-50 hover:opacity-100 h-full rounded-none px-3 md:px-8'
         />
       </Carousel>
     </div>

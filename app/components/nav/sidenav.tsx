@@ -30,7 +30,7 @@ export default function SideNav() {
       {/* Overlay */}
       {menuOpen && (
         <div
-          className='fixed inset-0 bg-gray-500 opacity-50 z-40 cursor-pointer'
+          className='fixed custom-inset-0 bg-gray-500 opacity-50 z-40 cursor-pointer'
           onClick={handleOverlayClick} // Close menu when overlay is clicked
         />
       )}

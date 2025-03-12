@@ -56,7 +56,7 @@ export default function Nav() {
               <Search className='h-[1.2rem] w-[1.2rem]' />
             </Link>
           </li>
-          <li className='hidden md:block'>
+          <li>
             <ModeToggle />
           </li>
           <li className='cursor-pointer'>
