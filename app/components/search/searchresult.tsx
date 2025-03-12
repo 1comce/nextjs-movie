@@ -47,7 +47,7 @@ export default async function SearchResult({
                 </div>
               </div>
 
-              <span>{title}</span>
+              <span className='line-clamp-1'>{title}</span>
               {/* <p className='line-clamp-1'>{item.overview}</p> */}
             </div>
           );
