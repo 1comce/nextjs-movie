@@ -1,6 +1,6 @@
 "use server";
 import { redirect, notFound } from "next/navigation";
-const defaultLanguage = "vi-VN";
+const defaultLanguage = "en-US";
 const VideoApiURL = process.env.GET_VIDEO_URL;
 const options = {
   method: "GET",
@@ -37,7 +37,9 @@ export async function getTrailer(id: string, type: string, language = "en-US") {
     )) as any;
     const data = await res.json();
     const trailer = data.results.find(
-      (item: any) => item.type === "Trailer" && item.site === "YouTube"
+      (item: any) =>
+        (item.type === "Teaser" || item.type === "Trailer") &&
+        item.site === "YouTube"
     );
     if (!trailer) notFound();
     return `https://www.youtube.com/embed/${trailer.key || trailer[0].key}`;

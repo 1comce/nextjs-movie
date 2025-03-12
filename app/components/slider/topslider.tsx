@@ -32,7 +32,7 @@ export default function TopSlider({ list }: { list: any }) {
       >
         <CarouselContent>
           {list.map((item: any, index: number) => {
-            if (item.media_type == "person") return <></>;
+            if (item.media_type == "person") return null;
             const title = item.media_type === "movie" ? item.title : item.name;
             return (
               <CarouselItem key={index} className='basis-full '>
@@ -45,28 +45,26 @@ export default function TopSlider({ list }: { list: any }) {
                     className='w-full h-full select-none'
                   />
                   {/* background to cover banner */}
-                  <div className='absolute inset-0 w-full h-full bg-linear-to-t from-black from-3% via-transparent to-transparent cursor-pointer'>
+                  <div className='absolute inset-0 w-full h-full bg-gradient-to-t from-black from-3% via-transparent to-transparent cursor-pointer'>
                     <Link
                       className='absolute inset-0 w-full h-full'
                       href={`/watch/${item.id}?type=${item.media_type}`}
                     />
                   </div>
                   {/* banner meta */}
-                  <div className='absolute bottom-0 left-0 p-[1rem] md:p-[3rem] text-white  bg-linear-to-tr from-black from-10% via-transparent to-transparent w-1/2'>
+                  <div className='absolute bottom-0 left-0 p-[1rem] md:p-[3rem] text-white  bg-gradient-to-tr from-black from-10% via-transparent to-transparent w-1/2'>
                     <div className='flex font-bold text-base md:text-lg text-left'>
-                      {" "}
-                      {title}{" "}
+                      <p className='line-clamp-1 md:line-clamp-3'>{title}</p>
                     </div>
-                    <div className=' text-left text-sm md:text-base  '>
+                    <div className='text-left text-sm md:text-base'>
                       <p className='line-clamp-3 md:line-clamp-4'>
                         {item.overview}
                       </p>
                     </div>
                     <div className='flex'>
-                      {" "}
                       <Button
-                        variant={"outline"}
-                        className='cursor-pointer w-[6rem]'
+                        variant={"custom"}
+                        className='cursor-pointer w-[6rem] p-0'
                       >
                         <Link
                           className='w-full h-full flex items-center justify-center'
@@ -74,7 +72,7 @@ export default function TopSlider({ list }: { list: any }) {
                         >
                           <Play className='fill-current' />
                         </Link>
-                      </Button>{" "}
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -84,11 +82,11 @@ export default function TopSlider({ list }: { list: any }) {
         </CarouselContent>
         <CarouselPrevious
           variant='default'
-          className='text-white -left-0 cursor-pointer opacity-50 hover:opacity-100 h-full rounded-none px-3 md:px-8'
+          className='hidden md:block bg-transparent  hover:bg-transparent -left-0 cursor-pointer opacity-50 hover:opacity-100 h-full rounded-none px-3 md:px-8'
         />
         <CarouselNext
           variant='default'
-          className='text-white -right-0 cursor-pointer opacity-50 hover:opacity-100 h-full rounded-none px-3 md:px-8'
+          className='hidden md:block bg-transparent hover:bg-transparent -right-0 cursor-pointer opacity-50 hover:opacity-100 h-full rounded-none px-3 md:px-8'
         />
       </Carousel>
     </div>

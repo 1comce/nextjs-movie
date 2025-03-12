@@ -36,7 +36,7 @@ export default function Page({
     return () => {
       if (observer) observer.disconnect();
     };
-  }, [data]);
+  }, [page]);
   return (
     <div className='w-full'>
       <div className='w-full text-left pt-2'>
