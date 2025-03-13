@@ -85,11 +85,11 @@ export default function Slider({
         </CarouselContent>
         <CarouselPrevious
           variant='ghost'
-          className='hidden md:flex -left-0 cursor-pointer opacity-0 hover:opacity-100 hover:bg-gradient-to-r from-black to-tranparent h-full rounded-none disabled:opacity-0 px-3 md:px-8 hover:text-white'
+          className='-left-0 cursor-pointer opacity-0 hover:opacity-100 hover:bg-gradient-to-r from-black to-tranparent h-full rounded-none disabled:opacity-0 px-3 md:px-8 hover:text-white'
         />
         <CarouselNext
           variant='ghost'
-          className='hidden md:flex -right-0 cursor-pointer opacity-0 hover:opacity-100 hover:bg-gradient-to-l from-black to-tranparent h-full rounded-none disabled:opacity-0 px-3 md:px-8 hover:text-white'
+          className='-right-0 cursor-pointer opacity-0 hover:opacity-100 hover:bg-gradient-to-l from-black to-tranparent h-full rounded-none disabled:opacity-0 px-3 md:px-8 hover:text-white'
         />
       </Carousel>
     </div>

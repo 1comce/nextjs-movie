@@ -25,6 +25,7 @@ export default function Nav() {
           />
         </Link>
       </div>
+
       <div className='px-5'>
         <ul className='hidden md:block flex-row space-x-4'>
           {list_item.slice(0, 3).map((item, index) => {

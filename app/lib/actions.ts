@@ -37,14 +37,16 @@ export async function getTrailer(id: string, type: string, language = "en-US") {
     )) as any;
     const data = await res.json();
     const trailer = data.results.find(
-      (item: any) =>
-        (item.type === "Teaser" || item.type === "Trailer") &&
-        item.site === "YouTube"
+      (item: any) => item.type === "Trailer" && item.site === "YouTube"
     );
-    if (!trailer) notFound();
-    return `https://www.youtube.com/embed/${
-      trailer.key || trailer[Math.floor(Math.random() * trailer.length)].key
-    }`;
+    if (trailer.length === 0) {
+      const teaser = data.results.find(
+        (item: any) => item.type === "Teaser" && item.site === "YouTube"
+      );
+      if (!teaser) notFound();
+      return `https://www.youtube.com/embed/${teaser.key || teaser[0].key}`;
+    }
+    return `https://www.youtube.com/embed/${trailer.key || trailer[0].key}`;
   } catch {
     notFound();
   }

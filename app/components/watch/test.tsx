@@ -6,5 +6,15 @@ export default function Test({ path }: { path: string }) {
     setVideoPath(path);
     return;
   }, [path]);
-  return <div>{videoPath}</div>;
+  return (
+    <div>
+      <a
+        href={videoPath.replace("embed", "watch")}
+        className='underline'
+        target='_blank'
+      >
+        Link to youtube video
+      </a>
+    </div>
+  );
 }

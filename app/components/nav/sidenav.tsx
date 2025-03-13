@@ -17,11 +17,11 @@ export default function SideNav() {
   };
 
   return (
-    <div className='flex items-center'>
+    <div className='md:hidden flex items-center'>
       {/* Menu Icon Button (Label that toggles the menu) */}
       <label
         htmlFor='menu-toggle'
-        className='md:hidden p-2 rounded-md cursor-pointer'
+        className='p-2 rounded-md cursor-pointer'
         onClick={handleMenuToggle} // Toggle the menu on click
       >
         <Menu className='h-[2rem] w-[2rem]' />
