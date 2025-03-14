@@ -60,7 +60,7 @@ export default function Nav() {
           <li>
             <ModeToggle />
           </li>
-          <li className='cursor-pointer'>
+          <li className='hidden md:block cursor-pointer'>
             <span>Đăng nhập</span>
           </li>
         </ul>

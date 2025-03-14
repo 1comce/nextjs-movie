@@ -4,6 +4,7 @@ import { getSearchMultiTotalPages } from "../lib/actions";
 import { Suspense } from "react";
 import SearchResult from "../components/search/searchresult";
 import { SearchSkeleton } from "../components/ui/skeleton";
+import Pagination from "../components/search/pagination";
 export default async function Page(props: {
   searchParams?: Promise<{
     query?: string;
@@ -22,10 +23,13 @@ export default async function Page(props: {
           <PlaceHolder />
         </Suspense>
       ) : (
-        <Suspense fallback={<SearchSkeleton />}>
+        <Suspense key={query + currentPage} fallback={<SearchSkeleton />}>
           <SearchResult query={query} page={currentPage} />
         </Suspense>
       )}
+      <div className='mt-5 flex w-full justify-center'>
+        <Pagination totalPages={totalPages} />
+      </div>
     </div>
   );
 }
