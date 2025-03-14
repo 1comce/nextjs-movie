@@ -23,13 +23,15 @@ export default async function Page(props: {
           <PlaceHolder />
         </Suspense>
       ) : (
-        <Suspense key={query + currentPage} fallback={<SearchSkeleton />}>
-          <SearchResult query={query} page={currentPage} />
-        </Suspense>
+        <>
+          <Suspense key={query + currentPage} fallback={<SearchSkeleton />}>
+            <SearchResult query={query} page={currentPage} />
+          </Suspense>
+          <div className='mt-5 flex w-full justify-center'>
+            <Pagination totalPages={totalPages} />
+          </div>
+        </>
       )}
-      <div className='mt-5 flex w-full justify-center'>
-        <Pagination totalPages={totalPages} />
-      </div>
     </div>
   );
 }
