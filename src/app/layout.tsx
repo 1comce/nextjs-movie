@@ -1,0 +1,50 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "@/styles/globals.css";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import { ThemeProvider } from "@/providers/themeProvider";
+import ScrollTop from "../components/scrolltop";
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | testing",
+    default: "testing",
+  },
+  description: "Movie testing page",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang='en' suppressHydrationWarning>
+      <body className={`${geistSans.variable} antialiased`}>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className='flex flex-col items-center justify-center w-full flex-1 px-5 text-center md:px-20'>
+            <Header />
+            {children}
+            <Footer />
+            <ScrollTop />
+          </main>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
