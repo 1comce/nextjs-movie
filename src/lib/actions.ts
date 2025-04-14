@@ -1,5 +1,9 @@
 "use server";
 import { redirect, notFound } from "next/navigation";
+import { Menu } from "@/lib/definition";
+import postgres from "postgres";
+import { revalidatePath, unstable_cache } from "next/cache";
+const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 const defaultLanguage = "en-US";
 const VideoApiURL = process.env.GET_VIDEO_URL;
 const options = {
@@ -124,3 +128,15 @@ export async function getSearchMultiTotalPages(
     throw new Error("search failed");
   }
 }
+export const getMenu = unstable_cache(
+  async () => {
+    try {
+      const result: Menu[] = await sql`SELECT * FROM menu`;
+      return result;
+    } catch (error) {
+      throw new Error("Error fetch menu");
+    }
+  },
+  ["menu"],
+  { revalidate: 30 * 60 * 60 }
+);

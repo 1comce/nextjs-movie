@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
-import Header from "../components/header";
-import Footer from "../components/footer";
 import { ThemeProvider } from "@/providers/themeProvider";
 import ScrollTop from "../components/scrolltop";
+import RootWrapper from "@/components/rootwrapper";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -17,8 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | testing",
-    default: "testing",
+    template: "%s | MePhim",
+    default: "MePhim",
   },
   description: "Movie testing page",
 };
@@ -37,12 +36,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className='flex flex-col items-center justify-center w-full flex-1 px-5 text-center md:px-20'>
-            <Header />
-            {children}
-            <Footer />
-            <ScrollTop />
-          </main>
+          <RootWrapper children={children} />
         </ThemeProvider>
       </body>
     </html>

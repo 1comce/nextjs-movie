@@ -42,3 +42,8 @@ export type TvData = {
   total_results: number;
   page: number;
 };
+export type Menu = {
+  id: number;
+  name: string;
+  link: string;
+};

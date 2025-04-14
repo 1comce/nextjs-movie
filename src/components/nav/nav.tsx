@@ -2,33 +2,34 @@
 import Link from "next/link";
 import Image from "next/image";
 import SideNav from "./sidenav";
-import { list_item } from "@/lib/constants";
 import { ModeToggle } from "@/components/ui/themetoggle";
 import { Search } from "lucide-react";
-import { More } from "./more";
 import { usePathname } from "next/navigation";
+import { Menu } from "@/lib/definition";
+import FullAuthDialog from "./dialog-wrapper";
 import clsx from "clsx";
 
-export default function Nav() {
+export default function Nav({ menu }: { menu: Menu[] }) {
   const pathname = usePathname();
   return (
     <div className='flex h-full flex-row items-center justify-between font-semibold w-full px-3 py-4 md:px-2'>
-      <SideNav />
-      <div>
+      <div className='flex gap-2'>
+        <SideNav menu={menu} />
         <Link href='/'>
           <Image
-            src='/images/movie.png'
-            alt='Movie'
+            src='/images/icons8.png'
+            alt='icon'
             width={50}
             height={50}
             priority
+            className='select-none'
           />
         </Link>
       </div>
 
-      <div className='px-5'>
-        <ul className='hidden md:block flex-row space-x-4'>
-          {list_item.slice(0, 3).map((item, index) => {
+      <div className='px-5 hidden xl:block'>
+        <ul className='flex-row space-x-4'>
+          {menu.map((item, index) => {
             return (
               <li
                 key={index}
@@ -43,11 +44,6 @@ export default function Nav() {
               </li>
             );
           })}
-          <li className='inline-block cursor-pointer hover:text-blue-500'>
-            <div className='flex items-center space-x-1'>
-              <More />
-            </div>
-          </li>
         </ul>
       </div>
       <div className='flex items-center'>
@@ -60,8 +56,10 @@ export default function Nav() {
           <li>
             <ModeToggle />
           </li>
-          <li className='hidden md:block cursor-pointer'>
-            <span>Đăng nhập</span>
+          <li className='hidden xl:block cursor-pointer'>
+            <FullAuthDialog>
+              <a>Đăng nhập</a>
+            </FullAuthDialog>
           </li>
         </ul>
       </div>
